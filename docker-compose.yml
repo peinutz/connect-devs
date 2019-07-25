@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "3050:80"
+    depends_on:
+      - api
+  postgres:
+    image: "postgres:latest"
+  pgadmin:
+    image: dpage/pgadmin4
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: pwdpwd
+    volumes:
+      - pgadmin:/root/.pgadmin
+    ports:
+      - "5050:80"
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    environment:
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=connect-devs-db
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+volumes:
+  pgadmin:

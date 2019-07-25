@@ -1,0 +1,30 @@
+{
+  "name": "connect-devs",
+  "version": "0.0.1",
+  "description": "Awesome project developed with TypeORM.",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/node": "^8.10.51",
+    "ts-node": "^3.3.0",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.0",
+    "@types/graphql": "^14.2.3",
+    "apollo-server-express": "^2.7.1",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "graphql": "^14.4.2",
+    "nodemon": "^1.19.1",
+    "pg": "^7.3.0",
+    "reflect-metadata": "^0.1.13",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "type-graphql": "^0.17.4",
+    "typeorm": "0.2.18"
+  },
+  "scripts": {
+    "dev": "nodemon --legacy-watch src --exec ts-node src/index.ts",
+    "start": "ts-node src/index.ts"
+  }
+}
