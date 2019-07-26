@@ -10,6 +10,7 @@ export class User extends BaseEntity {
     this.name = name;
     this.email = email;
     this.password = encryptedPassword;
+    this.date = new Date();
   }
 
   @Field(() => ID)
@@ -28,7 +29,7 @@ export class User extends BaseEntity {
   password: string;
 
   @Field()
-  @Column()
+  @Column({ nullable: true })
   avatar: string;
 
   @Column()

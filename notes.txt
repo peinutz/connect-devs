@@ -1,0 +1,2 @@
+Graphiql URL : http://localhost:3050/api/graphql
+PGAdmin: http://localhost:5050/browser/
