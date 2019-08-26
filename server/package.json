@@ -38,7 +38,9 @@
     "typeorm": "0.2.18"
   },
   "scripts": {
-    "dev": "nodemon --legacy-watch src --exec ts-node src/index.ts",
+    "postinstall": "tsc -p src",
+    "watch": "tsc -w -p ./src",
+    "dev": "nodemon --inspect --legacy-watch src --exec ts-node src/index.ts",
     "start": "ts-node src/index.ts"
   }
 }

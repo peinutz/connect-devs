@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, JoinColumn } from "typeorm";
 import { ObjectType, Field, ID } from "type-graphql";
+import { Profile } from "./Profile";
 
 @ObjectType()
 @Entity()
@@ -28,10 +29,15 @@ export class User extends BaseEntity {
   @Column()
   password: string;
 
-  @Field()
+  @Field({nullable: true})
   @Column({ nullable: true })
   avatar: string;
 
   @Column()
   date: Date;
+
+  @OneToOne(() => Profile, {onDelete: "CASCADE"})
+  @JoinColumn()
+  @Field()
+  profile: Profile;
 }
