@@ -34,7 +34,7 @@
     "reflect-metadata": "^0.1.13",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
-    "type-graphql": "^0.17.4",
+    "type-graphql": "^0.17.6",
     "typeorm": "0.2.18"
   },
   "scripts": {
